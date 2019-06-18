@@ -1,0 +1,49 @@
+\documentclass[12pt]{report}
+\setlength{\topmargin}{-1in}
+\setlength{\textheight}{9.8in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.8in} 
+\setlength{\parindent}{3em}
+\pretolerance=150
+\newcommand{\cm}[1]{\par\textbf{{#1}}\par}
+%\usepackage[ natbib=true, style=numeric, sorting=none ]{biblatex}
+%\addbibresource{../library.bib}
+
+\usepackage{csquotes}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks=true, citecolor=Black, linkcolor=Black, urlcolor=Black]{hyperref}
+\usepackage{bookmark}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{svg}
+\usepackage{algorithm2e}
+\svgpath{./fig/}
+\begin{document}
+%\title{VILNIUS GEDIMINAS TECHNICAL UNIVERSITY\\
+%DEPARTMENT OF APPLIED MECHANICS\\
+%\\
+%MECHANICS OF CONTINUAL STRUCTURES\\
+%}
+%\author{Oleksandr Hubanov\\
+%Vilnius Gediminas Technical University}
+%\maketitle
+%\tableofcontents
+%\part{Physic of biological tissues}
+\tableofcontents
+\newpage
+\input{CircularPlateModel.tex}
+\newpage
+\input{CDisplacementsMatrix.tex}
+\newpage
+\input{CoefficientMatrix.tex}
+\newpage
+\input{FlexibilityMatrix.tex}
+\newpage
+\input{ExternalLoadVector.tex}
+\newpage
+\input{InternalForcesDisplacements.tex}
+\newpage
+
+%\printbibliography[title=List of literature]
+\end{document}
