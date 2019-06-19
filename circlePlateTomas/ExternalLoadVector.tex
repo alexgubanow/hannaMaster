@@ -19,24 +19,28 @@ $[C]^T$ - is transpose of compatibility matrix of displacements $[C]$\par
 
 \VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Foutput.txt}
 The results of global displacements are shown as following : 
-%U=inv(A*inv(D_)*A')*F 
-Where:
-A - coefficient matrix of equilibrium equations
-A' - transpose coefficient matrix of equilibrium equations
-%D_: flexibility matrix
-F - External load vector
+\begin{equation}\label{eqn:Uglob}
+    [U]=\{[A][D]^{-1}\}^{-1}[A]^T[F]
+\end{equation}
+Where:\par
+$A$ - coefficient matrix of equilibrium equations\par
+$[A]^T$ - transpose coefficient matrix of equilibrium equations\par
+$[D]$: flexibility matrix\par
+$[F]$ - External load vector\par
 \VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ugloboutput.txt}
 \par
 The results of internal forces are shown as following: 
-%S=inv(D_)*A'*U  
-Where:
-%5D_ - flexibility matrix 
-%A'- transpose coefficient matrix of equilibrium equations
-U - global displacements
+\begin{equation}\label{eqn:Ulocal}
+    [S]=[D]^{-1}[A]^T[U]
+\end{equation}
+Where:\par
+$[D]$ - flexibility matrix \par
+$[A]^T$- transpose coefficient matrix of equilibrium equations\par
+$[U]$ - global displacements\par
 \VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ulocaloutput.txt}
 \begin{figure}
     \centering
     \input{um_mm.tex}
     \caption{ My first matlab2tikz figure }
     \label{fig:myfirstfig}
-    \end{figure}
+\end{figure}
