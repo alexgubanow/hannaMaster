@@ -1,4 +1,6 @@
 clc; clear;
+format compact;
+addpath('../matlab2tikz/');
 % initial data
 q_LOAD =20; % KN/m
 f=20; % KN
@@ -7,24 +9,27 @@ h=0.05; % thickness of plate
 E=210e6; % modulus of elastisty kPa
 v=.3; % poisson's ratio
 %
-r=L/2; % radious of plate 
-B=[1.5 1.5 3 2]; % [m]
-no_FE=length(B); % Number of plate finite elements
-b=B/2; % half of FE
-coords = zeros(no_FE,3);
-coords(1,1)=0; 
-coords(1,2)=B(1)/2; 
-coords(1,3)=B(1);
-for i=2:no_FE
-    coords(i,1)=coords(i - 1,3);
-    coords(i,2)=coords(i - 1,3) + B(i)/2;
-    coords(i,3)= coords(i - 1,3) + B(i);
+r=L/2; % radius of plate
+B=[1.5 1.5 3 2];%vector of elements lengths, meters
+no_FE=length(B); % Number of plate finite elements, as length of vector with elements lengths
+b=B/2; % half of elements lengths
+coords = zeros(no_FE,3);%filling matrix (number of elements by 3) by zeros
+coords(1,2)=B(1)/2;% coordinate of half of first element
+coords(1,3)=B(1);% coordinate of end of first element
+for i=2:no_FE% loop over coordinates matrix, "i" is current element, "i-1" is previous element
+    coords(i,1)=coords(i - 1,3);%start coordinate as end coordinate of previous element
+    coords(i,2)=coords(i - 1,3) + B(i)/2;%half coordinate as end coordinate of previous element plus half length of current element
+    coords(i,3)= coords(i - 1,3) + B(i);%end coordinate as end coordinate of previous element plus length of current element
 end
-coords
+delete coordsoutput.txt;
+diary('coordsoutput.txt');    
+diary on ;
+coords% printing coordinates matrix
+diary off ;%to avoid print other commands.
 no_of_local_dis=6; % Number of local displacements 
 no_of_global_dis=16; % Number of global displacements 
 
-% % 2. compatipality matrix C
+% 2. Compatipality matrix C
 % for the first FE
 c_1stcompatipality_matrix=zeros(no_of_local_dis,no_of_global_dis);
 c_1stcompatipality_matrix(2:6,1:5)=eye(5);
@@ -38,90 +43,38 @@ c_3rdcompatipality_matrix(1:6,8:13)=eye(6);
 c_4thcompatipality_matrix=zeros(no_of_local_dis,no_of_global_dis);
 c_4thcompatipality_matrix(1:5,12:16)=eye(5);
 % the total compatipality matrix of displacements
+delete Cmtxoutput.txt;
+diary('Cmtxoutput.txt');    
+diary on ;
 C=[c_1stcompatipality_matrix;c_2ndcompatipality_matrix;c_3rdcompatipality_matrix;c_4thcompatipality_matrix]
+diary off ;%to avoid print other commands.
 
-
-% % 4. MATRIX OF EQUILIBRIUM EQUATIONS A 
-
+%4. Matrix of equilibrium equantions A
 for k=1:no_FE
-Rok1=coords(k,1);
-Rok2=coords(k,2);
-Rok3=coords(k,3);
-bk=b(k);
-A_matrix(1,1)=Rok1;
-A_matrix(2,1)=1.5*Rok1/bk-1;
-A_matrix(2,2)=1;
-A_matrix(2,3)=-2*Rok1/bk;
-A_matrix(2,5)=Rok2/2*bk;
-A_matrix(3,1)=-Rok2/bk+2;
-A_matrix(3,2)=-5/6;
-A_matrix(3,3)=2*Rok2/bk-2;
-A_matrix(3,4)=2/3;
-A_matrix(3,5)=-Rok2/bk;
-A_matrix(3,6)=1/6;
-A_matrix(4,1)=-Rok2/bk;
-A_matrix(4,2)=-1/6;
-A_matrix(4,3)=2*Rok2/bk+2;
-A_matrix(4,4)=-2/3;
-A_matrix(4,5)=-Rok2/bk-2;
-A_matrix(4,6)=5/6;
-A_matrix(5,5)=-Rok3;
-A_matrix(6,1)=Rok3/2*bk;
-A_matrix(6,3)=-2*Rok3/bk;
-A_matrix(6,5)=1+1.5*Rok3/bk;
-A_matrix(6,6)=-1;
+A_matrix = getAmtx(coords(k,1), coords(k,2), coords(k,3), b(k));
 A_(k*6-5:k*6,k*6-5:k*6)=2*pi*A_matrix;
 end
+delete Amtxoutput.txt;
+diary('Amtxoutput.txt');    
+diary on ;
 A=C'*A_
+diary off ;%to avoid print other commands.
+
 
 
 % % 5. Flexibility MATRIX OF D
 for k=1:no_FE
 Rok2=coords(k,2);
 bk=b(k);
-j1=Rok2-bk;
-j2=4*Rok2-3*bk;
-j3=Rok2+bk;
-j4=4*Rok2+3*bk;
-D_matrix(1,1)=j2;
-D_matrix(1,2)=-v*j2;
-D_matrix(1,3)=2*j1;
-D_matrix(1,4)=-2*v*j1;
-D_matrix(1,5)=-Rok2;
-D_matrix(1,6)=v*Rok2;
-D_matrix(2,1)=D_matrix(1,2);
-D_matrix(2,2)=j2;
-D_matrix(2,3)=-2*v*j1;
-D_matrix(2,4)=2*j1;
-D_matrix(2,5)=v*Rok2;
-D_matrix(2,6)=-Rok2; 
-D_matrix(3,1)=D_matrix(1,3);
-D_matrix(3,2)=D_matrix(2,3);
-D_matrix(3,3)=16*Rok2;
-D_matrix(3,4)=-16*v*Rok2;
-D_matrix(3,5)=2*j3;
-D_matrix(3,6)=-2*v*j3;
-D_matrix(4,1)=D_matrix(1,4);
-D_matrix(4,2)=D_matrix(2,4);
-D_matrix(4,3)=D_matrix(3,4);
-D_matrix(4,4)=16*Rok2;
-D_matrix(4,5)=-2*v*j3;
-D_matrix(4,6)=2*j3;
-D_matrix(5,1)=D_matrix(1,5);
-D_matrix(5,2)=D_matrix(2,5);
-D_matrix(5,3)=D_matrix(3,5);
-D_matrix(5,4)=D_matrix(4,5);
-D_matrix(5,5)=j4;
-D_matrix(5,6)=-v*j4;
-D_matrix(6,1)=D_matrix(1,6);
-D_matrix(6,2)=D_matrix(2,6);
-D_matrix(6,3)=D_matrix(3,6);
-D_matrix(6,4)=D_matrix(4,6);
-D_matrix(6,5)=D_matrix(5,6);
-D_matrix(6,6)=j4;
+D_matrix = getDmtx(coords(k,2), b(k), v);
 K.k=E*h^3/(12*(1-v^2));
-D_(k*6-5:k*6,k*6-5:k*6)=(2*pi*bk/(15*K.k*(1-v^2)))*D_matrix
+D_(k*6-5:k*6,k*6-5:k*6)=(2*pi*bk/(15*K.k*(1-v^2)))*D_matrix;
 end
+delete Dmtxoutput.txt;
+diary('Dmtxoutput.txt');    
+diary on ;
+D_
+diary off ;%to avoid print other commands.
 
 
 % % 6. EXTERNAL LOAD VICTOR F
@@ -140,16 +93,46 @@ Rof=6;
      Fp_(6*k-5:k*6,1)=Fp;
  end
 
+delete Foutput.txt;
+diary('Foutput.txt');    
+diary on ;
 F=Fo+C'*Fp_
+diary off ;%to avoid print other commands.
+
+delete Ugloboutput.txt;
+diary('Ugloboutput.txt');    
+diary on ;
 Uglob=inv(A*inv(D_)*A')*F
+diary off ;%to avoid print other commands.
+
+delete Ulocaloutput.txt;
+diary('Ulocaloutput.txt');    
+diary on ;
 Ulocal=inv(D_)*A'*Uglob
+diary off ;%to avoid print other commands.
+
 
 
 M_Ro=Ulocal(1:2:end);
 M_fi=Ulocal(2:2:end);
-um_mm=1000*[Uglob(2:4:end);0]
+delete um_mmoutput.txt;
+diary('um_mmoutput.txt');    
+diary on ;
+um_mm = 1000*[Uglob(2:4:end);0]
+diary off ;%to avoid print other commands.
+xcoord = [0;coords(1:end,3)];
+plot(xcoord,um_mm,'DisplayName','Uglob');
+xlabel('Coordinates of elements, m') 
+ylabel('Displacement, m') 
+set(gca,'XAxisLocation','top','YAxisLocation','left','ydir','reverse');
+matlab2tikz('um_mm.tex','showInfo', false);
 
+delete u_allowableoutput.txt;
+diary('u_allowableoutput.txt');    
+diary on ;
 u_allowable=16/250*1000
+diary off ;%to avoid print other commands.
+
 
 
 

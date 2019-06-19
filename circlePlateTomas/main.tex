@@ -6,11 +6,52 @@
 \setlength{\parindent}{3em}
 \pretolerance=150
 \newcommand{\cm}[1]{\par\textbf{{#1}}\par}
+\newcommand{\nosection}[1]{\addcontentsline{toc}{section}{{#1}}\section*{{#1}}}
 %\usepackage[ natbib=true, style=numeric, sorting=none ]{biblatex}
 %\addbibresource{../library.bib}
-
+\usepackage[table,svgnames]{xcolor}
+\usepackage{multicol}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{pgfplots} 
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\pgfplotsset{compat=newest} 
+\pgfplotsset{plot coordinates/math parser=false}
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+  fontsize=\footnotesize % default
+  %
+  frame=lines,  % top and bottom rule only
+  framesep=2em, % separation between frame and text
+  rulecolor=\color{Gray},
+  %
+  label=\fbox{\color{Black}test.dat},
+  labelposition=topline,
+  %
+  %commandchars=\|\(\), % escape character and argument delimiters for
+                        % commands within the verbatim
+  %commentchar=*        % comment character
+ }
+\usepackage{listings}
+\lstset{ 
+	language=Matlab,                		% choose the language of the code
+%	basicstyle=10pt,       				% the size of the fonts that are used for the code
+	numbers=left,                  			% where to put the line-numbers
+	numberstyle=\footnotesize,      		% the size of the fonts that are used for the line-numbers
+	stepnumber=1,                   			% the step between two line-numbers. If it's 1 each line will be numbered
+	numbersep=5pt,                  		% how far the line-numbers are from the code
+%	backgroundcolor=\color{white},  	% choose the background color. You must add \usepackage{color}
+	showspaces=false,               		% show spaces adding particular underscores
+	showstringspaces=false,         		% underline spaces within strings
+	showtabs=false,                 			% show tabs within strings adding particular underscores
+%	frame=single,	                			% adds a frame around the code
+%	tabsize=2,                				% sets default tabsize to 2 spaces
+%	captionpos=b,                   			% sets the caption-position to bottom
+	breaklines=true,                			% sets automatic line breaking
+	breakatwhitespace=false,        		% sets if automatic breaks should only happen at whitespace
+	escapeinside={\%*}{*)}          		% if you want to add a comment within your code
+}
 \usepackage{csquotes}
-\usepackage[svgnames]{xcolor}
 \usepackage[colorlinks=true, citecolor=Black, linkcolor=Black, urlcolor=Black]{hyperref}
 \usepackage{bookmark}
 \usepackage{mathtools}
@@ -44,6 +85,7 @@
 \newpage
 \input{InternalForcesDisplacements.tex}
 \newpage
-
+\input{codeListing.tex}
+\newpage
 %\printbibliography[title=List of literature]
 \end{document}

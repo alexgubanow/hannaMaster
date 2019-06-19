@@ -1,7 +1,7 @@
-\addcontentsline{toc}{section}{External load vector}
-\section*{External load vector}
-\begin{equation}\label{eqn:flexMatrix}
-    {F_k}=
+\nosection{External load vector}
+Vector of external forces for node described as:
+\begin{equation}\label{eqn:ExtrLoad}
+    \{F_k\}=
     \frac{2\pi b_k\rho_k}{3}
     \left\{\begin{matrix}
         3\rho_{k,2}-b_k \\[2ex]
@@ -10,3 +10,33 @@
     =
     \{\eta_k\}\rho_k
 \end{equation}
+$[F]=[F_o]+[C]^T[F_p]$, where:\par
+$[F_o]=-m1 2\pi rho_{f,1}$\par
+$m_1$ – value of bending moment which correspond $u_1$\par
+$\rho_{f,1}$ - coordinate where is $m_1$\par
+$[F_p]$ - represent the equivalent of distributed loads.\par
+$[C]^T$ - is transpose of compatibility matrix of displacements $[C]$\par
+
+\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Foutput.txt}
+The results of global displacements are shown as following : 
+%U=inv(A*inv(D_)*A')*F 
+Where:
+A - coefficient matrix of equilibrium equations
+A' - transpose coefficient matrix of equilibrium equations
+%D_: flexibility matrix
+F - External load vector
+\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ugloboutput.txt}
+\par
+The results of internal forces are shown as following: 
+%S=inv(D_)*A'*U  
+Where:
+%5D_ - flexibility matrix 
+%A'- transpose coefficient matrix of equilibrium equations
+U - global displacements
+\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ulocaloutput.txt}
+\begin{figure}
+    \centering
+    \input{um_mm.tex}
+    \caption{ My first matlab2tikz figure }
+    \label{fig:myfirstfig}
+    \end{figure}
