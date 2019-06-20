@@ -11,12 +11,11 @@ Vector of external forces for node described as:
     \{\eta_k\}\rho_k
 \end{equation}
 $[F]=[F_o]+[C]^T[F_p]$, where:\par
-$[F_o]=-m1 2\pi rho_{f,1}$\par
-$m_1$ – value of bending moment which correspond $u_1$\par
-$\rho_{f,1}$ - coordinate where is $m_1$\par
+$[F_o]=f1 2\pi \rho_{f1} $\par
+$f1$ – value of external force which correspond $u_1$\par
+$\rho_{f1}$ - coordinate where is $m_1$\par
 $[F_p]$ - represent the equivalent of distributed loads.\par
 $[C]^T$ - is transpose of compatibility matrix of displacements $[C]$\par
-
 \VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Foutput.txt}
 The results of global displacements are shown as following : 
 \begin{equation}\label{eqn:Uglob}
@@ -34,13 +33,14 @@ The results of internal forces are shown as following:
     [S]=[D]^{-1}[A]^T[U]
 \end{equation}
 Where:\par
-$[D]$ - flexibility matrix \par
-$[A]^T$- transpose coefficient matrix of equilibrium equations\par
+$[D]$ - flexibility matrix \par 
+$[A]^T$- transpose coefficient matrix of equilibrium equations\par 
 $[U]$ - global displacements\par
-\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ulocaloutput.txt}
-\begin{figure}
-    \centering
-    \input{um_mm.tex}
-    \caption{ My first matlab2tikz figure }
-    \label{fig:myfirstfig}
-\end{figure}
+Results of internal forces ( S ) consists of $M_{\rho}$ and moments $M_{\varphi}$. 
+Schema have 24 values of internal forces (S) it's divided
+into: 12 values of moment $M_{\rho}$ and 12 values of moments $M_{\varphi}$. In the matlab command
+$M_{\rho}=S(1:2:end)$ means to take the 1st value of (S) , 3rd , 5th , 7 th ..... till end. All
+those values belong to moment $M_{\rho}$. For $M_{\varphi}=S(2:2:end)$ means to take the 2nd value
+of (S), 4th , 6th.....till end.\par
+\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{M_rooutput.txt}
+\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{M_fioutput.txt}
