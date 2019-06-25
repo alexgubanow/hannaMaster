@@ -11,12 +11,12 @@ Vector of external forces for node described as:
     \{\eta_k\}\rho_k
 \end{equation}
 $[F]=[F_o]+[C]^T[F_p]$, where:\par
-$[F_o]=f1 2\pi \rho_{f1} $\par
-$f1$ – value of external force which correspond $u_1$\par
-$\rho_{f1}$ - coordinate where is $m_1$\par
+$[F_o]=f_1 2\pi \rho_{f1} $\par
+$f_1$ – value of external force which correspond $u_1$\par
+$\rho_{f_1}$ - coordinate where is $m_1$\par
 $[F_p]$ - represent the equivalent of distributed loads.\par
 $[C]^T$ - is transpose of compatibility matrix of displacements $[C]$\par
-\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Foutput.txt}
+{\noindent \footnotesize \verbatiminput{FOutput.txt}}
 The results of global displacements are shown as following : 
 \begin{equation}\label{eqn:Uglob}
     [U]=\{[A][D]^{-1}\}^{-1}[A]^T[F]
@@ -26,7 +26,9 @@ $A$ - coefficient matrix of equilibrium equations\par
 $[A]^T$ - transpose coefficient matrix of equilibrium equations\par
 $[D]$: flexibility matrix\par
 $[F]$ - External load vector\par
-\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ugloboutput.txt}
+\begin{xtolerant}{300}{2em}
+    {\noindent \footnotesize \verbatiminput{UglobOutput.txt}}
+  \end{xtolerant}
 \par
 The results of internal forces are shown as following: 
 \begin{equation}\label{eqn:Ulocal}
@@ -36,11 +38,16 @@ Where:\par
 $[D]$ - flexibility matrix \par 
 $[A]^T$- transpose coefficient matrix of equilibrium equations\par 
 $[U]$ - global displacements\par
+%\begin{xtolerant}{300}{2em}
+ %   {\noindent \footnotesize \verbatiminput{SOutput.txt}}
+%  \end{xtolerant}
 Results of internal forces ( S ) consists of $M_{\rho}$ and moments $M_{\varphi}$. 
 Schema have 24 values of internal forces (S) it's divided
 into: 12 values of moment $M_{\rho}$ and 12 values of moments $M_{\varphi}$. In the matlab command
 $M_{\rho}=S(1:2:end)$ means to take the 1st value of (S) , 3rd , 5th , 7 th ..... till end. All
 those values belong to moment $M_{\rho}$. For $M_{\varphi}=S(2:2:end)$ means to take the 2nd value
 of (S), 4th , 6th.....till end.\par
-\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{M_rooutput.txt}
-\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{M_fioutput.txt}
+\begin{xtolerant}{300}{2em}
+    {\noindent \footnotesize \verbatiminput{M_Rooutput.txt}}
+    {\noindent \footnotesize \verbatiminput{M_fioutput.txt}}    
+  \end{xtolerant}

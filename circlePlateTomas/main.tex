@@ -11,6 +11,8 @@
 %\addbibresource{../library.bib}
 \usepackage[table,svgnames]{xcolor}
 \usepackage{multicol}
+\usepackage{varwidth}
+\usepackage{verbatim}
 \usepackage{fancyvrb}
 \usepackage{tikz}
 \usepackage{pgfplots} 
@@ -18,20 +20,13 @@
 \usepackage{pdflscape}
 \pgfplotsset{compat=newest} 
 \pgfplotsset{plot coordinates/math parser=false}
-\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
-  fontsize=\footnotesize % default
-  %
-  frame=lines,  % top and bottom rule only
-  framesep=2em, % separation between frame and text
-  rulecolor=\color{Gray},
-  %
-  label=\fbox{\color{Black}test.dat},
-  labelposition=topline,
-  %
-  %commandchars=\|\(\), % escape character and argument delimiters for
-                        % commands within the verbatim
-  %commentchar=*        % comment character
- }
+\newenvironment{xtolerant}[2]{%
+  \par
+  \ifx\empty#1\empty\else\tolerance=#1\relax\fi
+  \ifx\empty#2\empty\else\emergencystretch=#2\relax\fi
+}{%
+  \par
+}
 \usepackage{listings}
 \lstset{ 
 	language=Matlab,                		% choose the language of the code

@@ -4,15 +4,30 @@ plate. The results were obtained from a MATLAB commands. Based on these
 calculations, the results shows the internal forces and the a distribution of
 global displacements along our structure. The results shows that the maximum
 displacement was $U$ = 36.0471 mm in the direction gravity. The allowable
-displacement was $U_{allowable}$ = L/250 = 64 mm so, the verification was correct
+displacement was $U$ = L/250 = 64 mm so, the verification was correct
 based on the current geometry and material properties. Some parametric analysis
 were done for plate thickness as a very important parameter to reduce the
 displacement values.
 %\VerbatimInput[fontsize=\fontsize{7}{9}\selectfont]{Ulocaloutput.txt}
-
+\begin{figure}[H]
+    \centering
+    \includesvg{halfModel}    
+\end{figure}
 \begin{figure}[H]
     \centering
     \input{fullU.tex}
     \caption{ Global displacement across plate }
+    \label{fig:UglobFull}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{fullM_Ro.tex}
+    \caption{ $M_{\rho}$ across plate }
+    \label{fig:UglobFull}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{fullM_fi.tex}
+    \caption{ $M_{\varphi}$ across plate }
     \label{fig:UglobFull}
 \end{figure}

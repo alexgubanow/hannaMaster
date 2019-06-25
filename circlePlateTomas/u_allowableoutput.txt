@@ -1,2 +1,2 @@
-u_allowable =
-    64
+u_allowable=
+   64	

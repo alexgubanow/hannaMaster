@@ -21,11 +21,7 @@ for i=2:no_FE% loop over coordinates matrix, "i" is current element, "i-1" is pr
     coords(i,2)=coords(i - 1,3) + B(i)/2;%half coordinate as end coordinate of previous element plus half length of current element
     coords(i,3)= coords(i - 1,3) + B(i);%end coordinate as end coordinate of previous element plus length of current element
 end
-delete coordsoutput.txt;
-diary('coordsoutput.txt');    
-diary on ;
-coords% printing coordinates matrix
-diary off ;%to avoid print other commands.
+saveAsFileDairy('coords', coords);
 no_of_local_dis=6; % Number of local displacements 
 no_of_global_dis=16; % Number of global displacements 
 % 2. Compatipality matrix C
@@ -42,21 +38,15 @@ c_3rdcompatipality_matrix(1:6,8:13)=eye(6);
 c_4thcompatipality_matrix=zeros(no_of_local_dis,no_of_global_dis);
 c_4thcompatipality_matrix(1:5,12:16)=eye(5);
 % the total compatipality matrix of displacements
-delete Cmtxoutput.txt;
-diary('Cmtxoutput.txt');    
-diary on ;
-C=[c_1stcompatipality_matrix;c_2ndcompatipality_matrix;c_3rdcompatipality_matrix;c_4thcompatipality_matrix]
-diary off ;%to avoid print other commands.
+C=[c_1stcompatipality_matrix;c_2ndcompatipality_matrix;c_3rdcompatipality_matrix;c_4thcompatipality_matrix];
+%saveAsFileDairy('C', C);
 %4. Matrix of equilibrium equantions A
 for k=1:no_FE
 A_matrix = getAmtx(coords(k,1), coords(k,2), coords(k,3), b(k));
 A_(k*6-5:k*6,k*6-5:k*6)=2*pi*A_matrix;
 end
-delete Amtxoutput.txt;
-diary('Amtxoutput.txt');    
-diary on ;
-A=C'*A_
-diary off ;%to avoid print other commands.
+A=C'*A_;
+saveAsFileDairy('A', A);
 % % 5. Flexibility MATRIX OF D
 for k=1:no_FE
 Rok2=coords(k,2);
@@ -65,11 +55,7 @@ D_matrix = getDmtx(coords(k,2), b(k), v);
 K.k=E*h^3/(12*(1-v^2));
 D_(k*6-5:k*6,k*6-5:k*6)=(2*pi*bk/(15*K.k*(1-v^2)))*D_matrix;
 end
-delete Dmtxoutput.txt;
-diary('Dmtxoutput.txt');    
-diary on ;
-D_
-diary off ;%to avoid print other commands.
+saveAsFileDairy('D', D_);
 % % 6. EXTERNAL LOAD VICTOR F
 Fo=zeros(no_of_global_dis,1);
 Rof=6;
@@ -85,62 +71,44 @@ Rof=6;
      Fp=[0;0;Fk;0;0];
      Fp_(6*k-5:k*6,1)=Fp;
  end
-delete Foutput.txt;
-diary('Foutput.txt');    
-diary on ;
-F=Fo+C'*Fp_
-diary off ;%to avoid print other commands.
-delete Ugloboutput.txt;
-diary('Ugloboutput.txt');    
-diary on ;
-Uglob=inv(A*inv(D_)*A')*F
-diary off ;%to avoid print other commands.
-delete Ulocaloutput.txt;
-diary('Ulocaloutput.txt');    
-diary on ;
-Ulocal=inv(D_)*A'*Uglob
-diary off ;%to avoid print other commands.
-delete M_Rooutput.txt;
-diary('M_Rooutput.txt');    
-diary on ;
-M_Ro=Ulocal(1:2:end)
-diary off ;%to avoid print other commands.
-delete M_fioutput.txt;
-diary('M_fioutput.txt');    
-diary on ;
-M_fi=Ulocal(2:2:end)
-diary off ;%to avoid print other commands.
-delete um_mmoutput.txt;
-diary('um_mmoutput.txt');    
-diary on ;
-um_mm = 1000*[Uglob(1:4:end);0]
-diary off ;%to avoid print other commands.
-xcoord = [0;coords(1:end,3)];
-figure(1);
-plot(xcoord,um_mm,'DisplayName','Uglob');
-xlabel('Coordinates of elements, m') 
-ylabel('Displacement, m') 
-set(gca,'XAxisLocation','top','YAxisLocation','left','ydir','reverse');
-matlab2tikz('um_mm.tex','showInfo', false);
-delete u_allowableoutput.txt;
-diary('u_allowableoutput.txt');    
-diary on ;
-u_allowable=16/250*1000
-diary off ;%to avoid print other commands.
-fullCoord = [0;coords(1:end,3);coords(1:end,3)+coords(end)];
-flipedU = zeros(length(um_mm),1);
-j=length(um_mm);
-for i=1:length(um_mm)
-    flipedU(i) = um_mm(j);
-    j=j-1;
-end
-fullU = [flipedU;um_mm(2:end)];
-figure(2);
-plot(fullCoord, fullU,'DisplayName','Uglob');
-xlabel('Coordinates of elements, m') 
-ylabel('Displacement, m') 
-set(gca,'XAxisLocation','top','YAxisLocation','left','ydir','reverse');
-matlab2tikz('fullU.tex','showInfo', false);
+F=Fo+C'*Fp_;
+saveAsFileDairy('F', F);
+
+Uglob=inv(A*inv(D_)*A')*F;
+saveAsFileDairy('Uglob', Uglob);
+
+S=inv(D_)*A'*Uglob;
+saveAsFileDairy('S', S);
+
+M_Ro=S(1:2:end);
+saveAsFileDairy('M_Ro', M_Ro);
+
+M_fi=S(2:2:end);
+saveAsFileDairy('M_fi', M_fi);
+
+um_mm = 1000*[Uglob(1:4:end);0];
+saveAsFileDairy('um_mm', um_mm);
+% xcoord = [0;coords(1:end,3)];
+% figure(1);
+% plot(xcoord,um_mm,'DisplayName','Uglob');
+% xlabel('Coordinates of elements, m') 
+% ylabel('Displacement, m') 
+% set(gca,'XAxisLocation','top','YAxisLocation','left','ydir','reverse');
+% matlab2tikz('um_mm.tex','showInfo', false);
+u_allowable=16/250*1000;
+saveAsFile('u_allowable', u_allowable);
+fullCoord = getFullCoords(B, coords);
+plotU(fullCoord, um_mm, 1, true);
+plotMro(fullCoord, M_Ro, 2, true);
+plotMfi(fullCoord, M_fi,3, true);
+
+
+
+
+
+
+
+
 
 
 
