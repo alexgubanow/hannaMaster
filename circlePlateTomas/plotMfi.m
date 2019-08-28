@@ -24,12 +24,14 @@ for i=2:2:length(fullCoordH)
     j = j + 1;
 end
 fullCoordH(end) = fullCoord(end);
-fullCoordi = 0:1e-1:fullCoordH(end);
+fullCoordi = fullCoordH(1):1e-1:fullCoordH(end);
 fullM_Roi = interp1(fullCoordH,fullM_fi,fullCoordi,'makima');
 figure(fig_num);
 hold on;
-plot(fullCoordH, fullM_fi,'ro','DisplayName','M_fi');
-plot(fullCoordi,fullM_Roi,'DisplayName','Modifed Akima intepoly');
+plot(fullCoordH, fullM_fi,'ro');
+p = plot(fullCoordi,fullM_Roi);
+%set(get(get(p,'Annotation'),'LegendInformation'),'IconDisplayStyle','off');
+legend('$M_{\varphi}$','Interpreter','latex')
 xlabel('Coordinates of elements, m') 
 ylabel('M_{\phi}') 
 set(gca,'XAxisLocation','top','YAxisLocation','left','ydir','reverse');

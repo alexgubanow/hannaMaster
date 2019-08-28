@@ -3,7 +3,7 @@ The equilibrium of finite element method used to solve the mentioned annular
 plate. The results were obtained from a MATLAB commands. Based on these
 calculations, the results shows the internal forces and the a distribution of
 global displacements along our structure. The results shows that the maximum
-displacement was $U$ = 36.0471 mm in the direction gravity. The allowable
+displacement was $U$ = 969.8 mm in the direction gravity. The allowable
 displacement was $U$ = L/250 = 64 mm so, the verification was correct
 based on the current geometry and material properties. Some parametric analysis
 were done for plate thickness as a very important parameter to reduce the
@@ -19,15 +19,24 @@ displacement values.
     \caption{ Global displacement across plate }
     \label{fig:UglobFull}
 \end{figure}
+\begin{xtolerant}{300}{2em}
+    {\noindent \footnotesize \verbatiminput{um_mmOutput.txt}}
+  \end{xtolerant}
 \begin{figure}[H]
     \centering
     \input{fullM_Ro.tex}
     \caption{ $M_{\rho}$ across plate }
     \label{fig:UglobFull}
 \end{figure}
+\begin{xtolerant}{300}{2em}
+    {\noindent \footnotesize \verbatiminput{M_Rooutput.txt}}
+  \end{xtolerant}
 \begin{figure}[H]
     \centering
     \input{fullM_fi.tex}
     \caption{ $M_{\varphi}$ across plate }
     \label{fig:UglobFull}
 \end{figure}
+\begin{xtolerant}{300}{2em}
+    {\noindent \footnotesize \verbatiminput{M_fioutput.txt}}    
+  \end{xtolerant}

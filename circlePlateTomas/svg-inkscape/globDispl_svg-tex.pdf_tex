@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{537.10502391bp}%
+    \setlength{\unitlength}{537.10476363bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,41 +50,39 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.22253929)%
+  \begin{picture}(1,0.22253939)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{globDispl_svg-tex.pdf}}%
-    \put(0.0263271,0.01220615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U1\end{tabular}}}}%
+    \put(0.02632712,0.01220616){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{globDispl_svg-tex.pdf}}%
-    \put(0.05457948,0.04401929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U2\end{tabular}}}}%
+    \put(0.05457951,0.04401931){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{globDispl_svg-tex.pdf}}%
-    \put(0.24456239,0.01220615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U5\end{tabular}}}}%
+    \put(0.24456251,0.01220616){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{globDispl_svg-tex.pdf}}%
-    \put(0.21060442,0.04401929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U3\end{tabular}}}}%
+    \put(0.21060452,0.04401931){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U3\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{globDispl_svg-tex.pdf}}%
-    \put(0.23471143,0.19707125){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U4\end{tabular}}}}%
+    \put(0.23471155,0.19707135){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U4\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{globDispl_svg-tex.pdf}}%
-    \put(0.28698797,0.04416637){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U6\end{tabular}}}}%
+    \put(0.28698811,0.04416639){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U6\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{globDispl_svg-tex.pdf}}%
-    \put(0.47639222,0.01220615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U9\end{tabular}}}}%
+    \put(0.47639245,0.01220616){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U9\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{globDispl_svg-tex.pdf}}%
-    \put(0.44301515,0.04416637){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U7\end{tabular}}}}%
+    \put(0.44301536,0.04416639){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U7\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{globDispl_svg-tex.pdf}}%
-    \put(0.4671203,0.19721647){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U8\end{tabular}}}}%
+    \put(0.46712052,0.19721657){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U8\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{globDispl_svg-tex.pdf}}%
-    \put(0.51557263,0.04372512){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U10\end{tabular}}}}%
+    \put(0.51557288,0.04372514){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{globDispl_svg-tex.pdf}}%
-    \put(0.70555777,0.01191384){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U13\end{tabular}}}}%
+    \put(0.70555811,0.01191385){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U13\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{globDispl_svg-tex.pdf}}%
-    \put(0.6715998,0.04372512){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U11\end{tabular}}}}%
+    \put(0.67160013,0.04372514){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U11\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{globDispl_svg-tex.pdf}}%
-    \put(0.69570495,0.19677708){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U12\end{tabular}}}}%
+    \put(0.69570529,0.19677718){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U12\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{globDispl_svg-tex.pdf}}%
-    \put(0.75092691,0.0438722){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U14\end{tabular}}}}%
+    \put(0.75092728,0.04387222){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U14\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=15]{globDispl_svg-tex.pdf}}%
-    \put(0.90695222,0.0438722){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U15\end{tabular}}}}%
+    \put(0.90695266,0.04387222){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U15\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=16]{globDispl_svg-tex.pdf}}%
-    \put(0.93105923,0.19692417){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}U16\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=17]{globDispl_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%

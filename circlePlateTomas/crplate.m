@@ -97,10 +97,10 @@ saveAsFileDairy('um_mm', um_mm);
 % matlab2tikz('um_mm.tex','showInfo', false);
 u_allowable=16/250*1000;
 saveAsFile('u_allowable', u_allowable);
-fullCoord = getFullCoords(B, coords);
+fullCoord = [-8; -6; -4.5; -2.25; 0; 2.25; 4.5; 6; 8];
 plotU(fullCoord, um_mm, 1, true);
-plotMro(fullCoord, M_Ro, 2, true);
 plotMfi(fullCoord, M_fi,3, true);
+plotMro(fullCoord, M_Ro, 2, true);
 
 
 

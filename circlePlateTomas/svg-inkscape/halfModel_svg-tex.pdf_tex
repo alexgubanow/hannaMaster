@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{303.13664524bp}%
+    \setlength{\unitlength}{247.85429869bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,23 +50,21 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.29694963)%
+  \begin{picture}(1,0.36318238)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{halfModel_svg-tex.pdf}}%
-    \put(0.69807782,0.06469474){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
+    \put(0.85377969,0.07912046){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{halfModel_svg-tex.pdf}}%
-    \put(0.46462211,0.06469144){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3\end{tabular}}}}%
+    \put(0.56825316,0.07911642){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{halfModel_svg-tex.pdf}}%
-    \put(0.24419352,0.06462219){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5\end{tabular}}}}%
+    \put(0.29865935,0.07903173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{halfModel_svg-tex.pdf}}%
-    \put(0.10392678,0.06479043){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5\end{tabular}}}}%
+    \put(0.127107,0.0792375){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{halfModel_svg-tex.pdf}}%
-    \put(0.88809768,0.17883453){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}M1=0\end{tabular}}}}%
+    \put(0.21532412,0.32007633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}q\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{halfModel_svg-tex.pdf}}%
-    \put(0.17605595,0.26170473){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}q\end{tabular}}}}%
+    \put(0.7247039,0.30391362){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}f1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{halfModel_svg-tex.pdf}}%
-    \put(0.68570056,0.25001694){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}f1\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=8]{halfModel_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%
